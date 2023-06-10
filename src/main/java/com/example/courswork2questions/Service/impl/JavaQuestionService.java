@@ -42,20 +42,13 @@ public class JavaQuestionService implements QuestionService {
         return Collections.unmodifiableCollection(questions);
     }
 
-    //@Override код Димы
-   // public Question getRandomQuestion() {
-    //    if (questions.isEmpty()) {
-     //       throw new QuestionsAreEmptyException();
-     //   }
-      //  return new ArrayList<>(questions).get(random.nextInt(questions.size()));
-  //  }
-
     @Override
     public Question getRundomQuestion() {
-        int value = random.nextInt(questions.size());
+        int value = random.гоооnextInt(questions.size());
         List<Question> questionList = new ArrayList<>(getAll());
         return questionList.get(value);
     }
+
     public Question checkQuestion(String question, String answer) {
         if (question == null || answer == null) {
             throw new IncorrectQuestionOrAnswerException();

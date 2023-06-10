@@ -1,17 +1,17 @@
 package com.example.courswork2questions;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-
-import java.util.HashSet;
-
 import com.example.courswork2questions.Service.QuestionService;
 import com.example.courswork2questions.Service.impl.JavaQuestionService;
 import com.example.courswork2questions.model.Question;
-import exception.IncorrectQuestionOrAnswerException;
+import exception.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashSet;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class JavaQuestionServiceTest {
 
@@ -55,15 +55,16 @@ public class JavaQuestionServiceTest {
     public void add1NegativeTest() {
         Question question = new Question("Q1", "A1");
 
-        assertThatExceptionOfType(IncorrectQuestionOrAnswerException.class)
+        assertThatExceptionOfType(QuestionAlreadyExistsException.class)
                 .isThrownBy(() -> questionService.add(question));
     }
 
     @Test
     public void add2NegativeTest() {
-        assertThatExceptionOfType(IncorrectQuestionOrAnswerException.class)
+        assertThatExceptionOfType(QuestionAlreadyExistsException.class)
                 .isThrownBy(() -> questionService.add("Q1", "A1"));
     }
+
 
     @Test
     public void removeTest() {
@@ -78,7 +79,7 @@ public class JavaQuestionServiceTest {
 
     @Test
     public void removeNegativeTest() {
-        assertThatExceptionOfType(IncorrectQuestionOrAnswerException.class)
+        assertThatExceptionOfType(QuestionNotFoundException.class)
                 .isThrownBy(() -> questionService.remove(new Question("Q4", "A4")));
     }
 
@@ -103,8 +104,7 @@ public class JavaQuestionServiceTest {
     @Test
     public void getRandomQuestionNegativeTest() {
         afterEach();
-
-        assertThatExceptionOfType(IncorrectQuestionOrAnswerException.class)
+        assertThatExceptionOfType(QuestionsAreEmptyException.class)
                 .isThrownBy(questionService::getRundomQuestion);
     }
 
