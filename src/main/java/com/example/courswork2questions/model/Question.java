@@ -32,11 +32,9 @@ public class Question {
         return Objects.hash(question, answer);
     }
 
+
     @Override
     public String toString() {
-        return "Question{" +
-                "question='" + question + '\'' +
-                ", answer='" + answer + '\'' +
-                '}';
+        return String.format("Вопрос: %s, ответ: %s", question, answer);
     }
 }
