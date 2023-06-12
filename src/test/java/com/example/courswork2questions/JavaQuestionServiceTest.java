@@ -1,9 +1,11 @@
 package com.example.courswork2questions;
 
 import com.example.courswork2questions.Service.QuestionService;
-import com.example.courswork2questions.Service.impl.JavaQuestionService;
+import com.example.courswork2questions.Service.impl.JavaQuestionServiceImpl;
 import com.example.courswork2questions.model.Question;
-import exception.*;
+import exception.QuestionAlreadyExistsException;
+import exception.QuestionNotFoundException;
+import exception.QuestionsAreEmptyException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class JavaQuestionServiceTest {
 
-    private final QuestionService questionService = new JavaQuestionService();
+    private final QuestionService questionService = new JavaQuestionServiceImpl();
 
     @BeforeEach
     public void beforeEach() {
@@ -96,7 +98,7 @@ public class JavaQuestionServiceTest {
 
     @Test
     public void getRandomQuestionTest() {
-        assertThat(questionService.getRundomQuestion())
+        assertThat(questionService.getRandomQuestion())
                 .isNotNull()
                 .isIn(questionService.getAll());
     }
@@ -105,7 +107,7 @@ public class JavaQuestionServiceTest {
     public void getRandomQuestionNegativeTest() {
         afterEach();
         assertThatExceptionOfType(QuestionsAreEmptyException.class)
-                .isThrownBy(questionService::getRundomQuestion);
+                .isThrownBy(questionService::getRandomQuestion);
     }
 
 }

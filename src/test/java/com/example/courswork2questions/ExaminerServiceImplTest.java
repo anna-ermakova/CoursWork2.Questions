@@ -49,7 +49,7 @@ public class ExaminerServiceImplTest {
     public void getQuestionsTest() {
         when(questionService.getAll()).thenReturn(questions);
 
-        when(questionService.getRundomQuestion()).thenReturn(
+        when(questionService.getRandomQuestion()).thenReturn(
                 new Question("Q4", "A4"),
                 new Question("Q4", "A4"),
                 new Question("Q5", "A5"),

@@ -26,7 +26,7 @@ public class ExaminerServiceImpl implements ExaminerService {
         }
         Set<Question> result = new HashSet<>();
         while (result.size() < amount) {
-            result.add(questionService.getRundomQuestion());
+            result.add(questionService.getRandomQuestion());
         }
         return result;
     }
