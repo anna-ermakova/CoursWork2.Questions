@@ -1,4 +1,4 @@
-package com.example.courswork2questions.Service;
+package com.example.courswork2questions.service;
 
 import com.example.courswork2questions.model.Question;
 

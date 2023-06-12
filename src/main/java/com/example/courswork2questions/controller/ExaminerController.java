@@ -1,6 +1,6 @@
 package com.example.courswork2questions.controller;
 
-import com.example.courswork2questions.Service.ExaminerService;
+import com.example.courswork2questions.service.ExaminerService;
 import com.example.courswork2questions.model.Question;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

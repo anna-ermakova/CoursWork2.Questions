@@ -1,7 +1,7 @@
-package com.example.courswork2questions.Service.impl;
+package com.example.courswork2questions.service.impl;
 
-import com.example.courswork2questions.Service.ExaminerService;
-import com.example.courswork2questions.Service.QuestionService;
+import com.example.courswork2questions.service.ExaminerService;
+import com.example.courswork2questions.service.QuestionService;
 import com.example.courswork2questions.model.Question;
 import exception.IncorrectQuestionOrAnswerException;
 import org.springframework.stereotype.Service;
